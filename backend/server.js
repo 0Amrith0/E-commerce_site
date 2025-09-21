@@ -16,7 +16,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT;
 
-app.use(express.json());
+app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors({
@@ -32,7 +32,7 @@ app.use("/api/payments", paymentRoutes);
 app.use("/api/analytics", analyticsRoutes);
 
 
-app.listen(PORT, () => {
-    connectDB();
+app.listen(PORT, async() => {
+    await connectDB();
     console.log(`Server is running on http://localhost:${PORT}`);
 })
