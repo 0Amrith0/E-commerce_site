@@ -17,6 +17,7 @@ export const useUserStore = create((set, get) => ({
 
 		try {
 			const res = await axios.post("/auth/signup", { name, email, password });
+			await get().checkAuth();
 			set({ user: res.data, loading: false });
 		} catch (error) {
 			set({ loading: false });
@@ -29,7 +30,7 @@ export const useUserStore = create((set, get) => ({
 
 		try {
 			const res = await axios.post("/auth/login", { email, password });
-
+			await get().checkAuth();
 			set({ user: res.data, loading: false });
 		} catch (error) {
 			set({ loading: false });
