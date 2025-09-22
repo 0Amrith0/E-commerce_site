@@ -15,6 +15,7 @@ dist
 build
 dist-ssr
 *.local
+.env
 
 # Environment variables
 .env
