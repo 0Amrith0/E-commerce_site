@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useUserStore } from "../stores/useUserStore";
 import { useCartStore } from "../stores/useCartStore";
 
-const Navbar = () => {
+const NavBar = () => {
 	const { user, logout } = useUserStore();
 	const isAdmin = user?.role === "admin";
 	const { cart } = useCartStore();
@@ -88,4 +88,4 @@ const Navbar = () => {
 		</header>
 	);
 };
-export default Navbar;
+export default NavBar;
